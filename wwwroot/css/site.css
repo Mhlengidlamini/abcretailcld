@@ -1,0 +1,52 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.jumbotron {
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 2rem;
+    margin-bottom: 0;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-item blockquote {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
