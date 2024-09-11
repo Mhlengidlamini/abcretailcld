@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ABCRetail.ViewModel.ProductViewModel>
+@using System.Globalization
+
+<h1>Product Catalog</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="UploadImage" asp-controller="Product" class="btn btn-primary mb-3">Create New Product</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock Availability</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@product.ImageUrl" alt="@product.ProductName" style="width:100px;height:auto;" />
+                </td>
+                <td>@product.ProductName</td>
+                <td>@product.Description</td>
+                <td>@product.Price.ToString("C", new CultureInfo("en-ZA"))</td>
+                <td>@(product.StockLevel > 0 ? "In Stock" : "Out of Stock")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-primary">View Details</a>
+
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        <form asp-action="AddToCart" asp-controller="Cart" asp-route-id="@product.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-success" @(product.StockLevel > 0 ? "" : "disabled")>
+                                Add to Cart
+                            </button>
+                        </form>
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning">Edit</a>
+                        <form asp-action="Delete" asp-route-id="@product.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

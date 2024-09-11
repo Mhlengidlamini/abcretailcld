@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Welcome to ABC Retail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron text-center" style="background-color: lightblue; color: white;">
+    <div class="container">
+        <h1 class="display-3">Welcome to ABC Retail</h1>
+        <p class="lead">Your one-stop shop for all your needs. Enjoy the best deals and a wide range of products.</p>
+        <a class="btn btn-primary btn-lg" href="Product/Index" role="button">Shop Now</a>
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <h2>Featured Categories</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="images/Fundevice.png" class="card-img-top" alt="Gaming Console">
+                <div class="card-body">
+                    <h5 class="card-title">Gaming Console</h5>
+                    <p class="card-text">Explore the latest in gaming consoles .</p>
+                    <a href="Product/Index" class="btn btn-outline-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="images/Personal.png" class="card-img-top" alt="Personal Devices">
+                <div class="card-body">
+                    <h5 class="card-title">Personal Devices</h5>
+                    <p class="card-text">Discover our rage of Personal Devices.</p>
+                    <a href="Product/Index" class="btn btn-outline-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="images/Home.png" class="card-img-top" alt="Home devices">
+                <div class="card-body">
+                    <h5 class="card-title">Home devices</h5>
+                    <p class="card-text">Everything you need to have in your home.</p>
+                    <a href="Product/Index" class="btn btn-outline-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center my-5">
+    <h2 class="mb-4">Why Shop with Us?</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <i class="fas fa-truck fa-3x mb-3"></i>
+            <h5>Fast Delivery</h5>
+            <p>Get your orders delivered quickly to your doorstep.</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-shield-alt fa-3x mb-3"></i>
+            <h5>Secure Payment</h5>
+            <p>Our payment process is safe and secure, ensuring your peace of mind.</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-undo fa-3x mb-3"></i>
+            <h5>Easy Returns</h5>
+            <p>Not satisfied? Our return process is hassle-free.</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fas fa-headset fa-3x mb-3"></i>
+            <h5>24/7 Support</h5>
+            <p>We're here to help, anytime, day or night.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="jumbotron text-center" style="background-color: lightblue; color: white;">
+    <div class="container">
+        <h2 class="display-4">New Customer?</h2>
+        <p class="lead">Join us for free to get the latest deals and discounts delivered straight to your inbox.</p>
+        <form class="form-inline justify-content-center">
+            <div class="form-group mb-2">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
+        </form>
+    </div>
+</div>

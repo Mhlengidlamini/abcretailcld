@@ -1,0 +1,50 @@
+﻿@model ABCRetail.ViewModel.LogsViewModel
+
+<h2 class="mb-4">Logs</h2>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h4 class="mb-0">Upload New Log</h4>
+    </div>
+    <div class="card-body">
+        <form asp-action="UploadLog" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="file" name="file" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Log</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="mb-0">Existing Logs</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">File Name</th>
+                    <th scope="col">File Size</th>
+                    <th scope="col">Uploaded Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var log in Model.Logs)
+                {
+                    <tr>
+                        <td>@log.FileName</td>
+                        <td>@log.FileSize</td>
+                        <td>@log.UploadedDate.ToString("g")</td>
+                        <td>
+                            <a href="@Url.Action("DownloadLog", new { fileName = log.FileName })" class="btn btn-sm btn-success">
+                                Download
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

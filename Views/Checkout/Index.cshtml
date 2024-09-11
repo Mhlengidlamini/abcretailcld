@@ -1,0 +1,40 @@
+﻿@model ABCRetail.ViewModel.CheckoutViewModel
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h1>Checkout</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price.ToString("C", new CultureInfo("en-ZA"))</td>
+                <td>@(item.Quantity * item.Price)</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total Amount:</td>
+            <td>@Model.TotalAmount.ToString("C", new CultureInfo("en-ZA"))</td>
+        </tr>
+    </tfoot>
+</table>
+
+<form asp-action="Payment" method="post">
+    <button type="submit" class="btn btn-primary">Proceed to Pay</button>
+</form>

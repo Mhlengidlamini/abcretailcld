@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ABCRetail.ViewModel.OrderViewModel>
+@using System.Globalization
+
+<h1>All Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.OrderDate?.ToString("MM/dd/yyyy HH:mm")</td>
+                <td>@order.TotalAmount.ToString("C", new CultureInfo("en-ZA"))</td>
+                <td>@order.Status</td>
+                <td>
+                    <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-primary">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

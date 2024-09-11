@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ABCRetail.ViewModel.OrderViewModel>
+@using System.Globalization
+
+<h1>Order History</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.OrderDate?.ToString("MM/dd/yyyy HH:mm")</td>
+                    <td>@order.TotalAmount.ToString("C", new CultureInfo("en-ZA"))</td>
+                    <td>@order.Status</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">No orders found.</td>
+            </tr>
+        }
+    </tbody>
+</table>

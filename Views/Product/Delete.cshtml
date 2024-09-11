@@ -1,0 +1,28 @@
+﻿@model ABCRetail.ViewModel.ProductViewModel
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h2>Delete Product</h2>
+
+<h3>Are you sure you want to delete this product?</h3>
+
+<div>
+    <h4>@Model.ProductName</h4>
+    <div>
+        <p>Description: @Model.Description</p>
+        <p>Price: @Model.Price</p>
+        <p>Stock: @Model.StockLevel</p>
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" alt="Product Image" class="img-thumbnail" style="width: 150px; height: 150px;" />
+        }
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

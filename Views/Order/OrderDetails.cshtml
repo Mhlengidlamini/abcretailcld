@@ -1,0 +1,45 @@
+﻿@model ABCRetail.ViewModel.OrderViewModel
+@using System.Globalization
+
+<h1>Order Details</h1>
+
+<table class="table">
+    <tr>
+        <th>Order ID</th>
+        <td>@Model.OrderId</td>
+    </tr>
+    <tr>
+        <th>Order Date</th>
+        <td>@Model.OrderDate</td>
+    </tr>
+    <tr>
+        <th>Total Amount</th>
+        <td>@Model.TotalAmount.ToString("C", new CultureInfo("en-ZA"))</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>@Model.Status</td>
+    </tr>
+</table>
+
+<h2>Order Items</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
